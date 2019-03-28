@@ -69,7 +69,7 @@ class GetFreeProxy(object):
         request = WebRequest()
         for _ in urls:
             url = _.format(count=count)
-            html = request.get(url).content
+            html = request.get(url).text
             ips = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}", html)
             for ip in ips:
                 yield ip.strip()
@@ -298,7 +298,7 @@ if __name__ == '__main__':
     from CheckProxy import CheckProxy
 
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyFirst)
-    # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxySecond)
+    CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxySecond)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyThird)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyFourth)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyFifth)
@@ -307,7 +307,7 @@ if __name__ == '__main__':
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyEight)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyNinth)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyTen)
-    CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyEleven)
+    # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyEleven)
     # CheckProxy.checkGetProxyFunc(GetFreeProxy.freeProxyTwelve)
 
     # CheckProxy.checkAllGetProxyFunc()
