@@ -54,7 +54,7 @@ class GetFreeProxy(object):
                     print(e)
 
     @staticmethod
-    def freeProxySecond(count=50):
+    def freeProxySecond(count=200):
         """
         代理66 http://www.66ip.cn/
         :param count: 提取数量
@@ -91,7 +91,7 @@ class GetFreeProxy(object):
             pass
 
     @staticmethod
-    def freeProxyFourth(page_count=1):
+    def freeProxyFourth(page_count=2):
         """
         西刺代理 http://www.xicidaili.com
         :return:

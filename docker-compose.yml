@@ -7,6 +7,8 @@ services:
       - "5010:5010"
     links:
       - proxy_redis
+    volumes:
+      - ".:/usr/src/app"
     environment:
       db_type: SSDB
       ssdb_host: proxy_redis
