@@ -73,7 +73,7 @@ def refreshPool():
     pp.validProxy()
 
 
-def batchRefresh(process_num=30):
+def batchRefresh(process_num=50):
     # 检验新代理
     pl = []
     for num in range(process_num):

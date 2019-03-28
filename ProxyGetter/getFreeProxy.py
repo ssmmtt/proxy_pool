@@ -40,6 +40,8 @@ class GetFreeProxy(object):
         url_list = [
             'http://www.data5u.com/',
             'http://www.data5u.com/free/gngn/index.shtml',
+            'http://www.data5u.com/free/gwgn/index.shtml',
+            'http://www.data5u.com/free/gwpt/index.shtml',
             'http://www.data5u.com/free/gnpt/index.shtml'
         ]
         for url in url_list:
@@ -52,7 +54,7 @@ class GetFreeProxy(object):
                     print(e)
 
     @staticmethod
-    def freeProxySecond(count=20):
+    def freeProxySecond(count=50):
         """
         代理66 http://www.66ip.cn/
         :param count: 提取数量
@@ -60,9 +62,10 @@ class GetFreeProxy(object):
         """
         urls = [
             "http://www.66ip.cn/mo.php?sxb=&tqsl={count}&port=&export=&ktip=&sxa=&submit=%CC%E1++%C8%A1&textarea=",
-            "http://www.66ip.cn/nmtq.php?getnum={count}"
-            "&isp=0&anonymoustype=0&start=&ports=&export=&ipaddress=&area=1&proxytype=2&api=66ip",
-            ]
+            # proxytype 0 http  1 https  2 全部
+            "http://www.66ip.cn/nmtq.php?getnum={count}&isp=0&anonymoustype=0&start=&ports=&export=&ipaddress=&area=0&proxytype=1&api=66ip"
+
+        ]
         request = WebRequest()
         for _ in urls:
             url = _.format(count=count)
@@ -96,6 +99,7 @@ class GetFreeProxy(object):
         url_list = [
             'http://www.xicidaili.com/nn/',  # 高匿
             'http://www.xicidaili.com/nt/',  # 透明
+            'http://www.xicidaili.com/wn/',  # https
         ]
         for each_url in url_list:
             for i in range(1, page_count + 1):
@@ -200,7 +204,11 @@ class GetFreeProxy(object):
         云代理 http://www.ip3366.net/free/
         :return:
         """
-        urls = ['http://www.ip3366.net/free/']
+        urls = [
+            'http://www.ip3366.net/free/?stype=1',
+            'http://www.ip3366.net/free/?stype=2',
+            'http://www.ip3366.net/free/?stype=3',
+        ]
         request = WebRequest()
         for url in urls:
             r = request.get(url, timeout=10)
@@ -229,7 +237,7 @@ class GetFreeProxy(object):
                 yield ":".join(proxy)
 
     @staticmethod
-    def freeProxyTwelve(page_count=2):
+    def freeProxyTwelve(page_count=5):
         """
         http://ip.jiangxianli.com/?page=
         免费代理库
@@ -276,7 +284,8 @@ class GetFreeProxy(object):
 
     @staticmethod
     def freeProxyWallThird():
-        urls = ['https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-1']
+        urls = ['https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-1',
+                'https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-2']
         request = WebRequest()
         for url in urls:
             r = request.get(url, timeout=10)
